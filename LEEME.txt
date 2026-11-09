@@ -1,0 +1,40 @@
+SHUA French Taco · web
+======================
+
+CÓMO ABRIRLA
+------------
+Windows:  doble clic en "Abrir web (Windows).bat"
+Mac:      doble clic en "Abrir web (Mac).command"
+          (la primera vez: clic derecho > Abrir > Abrir, porque macOS
+          bloquea archivos descargados de internet)
+Linux:    ./abrir-web-linux.sh
+
+Se abre una ventana negra con dos direcciones y el navegador con la web.
+No cierres esa ventana mientras quieras ver la web.
+
+VERLA EN EL MÓVIL U OTRO ORDENADOR
+----------------------------------
+1. El móvil tiene que estar en la MISMA wifi que el ordenador.
+2. Escribe en el navegador del móvil la dirección que pone
+   "En el móvil (misma wifi)", por ejemplo http://192.168.1.35:8080
+3. En Windows, si sale un aviso del Firewall, pulsa "Permitir acceso"
+   (redes privadas). Si no lo permites, el móvil no podrá entrar.
+
+QUÉ NECESITA
+------------
+Python 3 (en Mac y Linux ya suele venir; en Windows: python.org,
+marcando "Add python.exe to PATH" al instalar) o Node.js.
+No hace falta internet para la web, salvo para las fuentes de letra
+y el mapa de Google, que se cargan de internet.
+
+OPCIONES DE DISEÑO
+------------------
+Abajo a la izquierda está el botón "Opciones de diseño" para cambiar
+la portada (Trompo 3D, Rayo 3D, Aluminio) y el estilo del scroll
+(Cinemático, Cómic, Sobrio).
+
+Enlaces directos de ejemplo:
+  http://localhost:8080/?hero=trompo&scroll=cine
+  http://localhost:8080/?hero=rayo&scroll=comic
+  http://localhost:8080/?hero=foil&scroll=suave
+Añade &opciones=0 para ocultar el botón de opciones.
