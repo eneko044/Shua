@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="es" data-hero="trompo" data-scroll="cine">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SHUA French Taco · French tacos, kebab y shawarma</title>
+  <meta name="description" content="SHUA French Taco: french tacos prensados con patatas y salsa de queso, kebab al trompo y shawarma en pan libanés. Ternera de Carnicería Mardaras y pollo amarillo criado de forma tradicional.">
+  <meta name="theme-color" content="#E8196F">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23E8196F'/%3E%3Cpath d='M36 8 18 36h12l-4 20 20-30H34z' fill='%23FFD31A'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,700&family=Barlow:wght@400;500;600&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    // Elige portada y scroll antes de pintar nada, para que no haya parpadeo.
+    (function () {
+      var p = new URLSearchParams(location.search);
+      var saved = {};
+      try { saved = JSON.parse(localStorage.getItem('shua-opts') || '{}'); } catch (e) {}
+      var heroes = ['trompo', 'rayo', 'foil'], scrolls = ['cine', 'comic', 'suave'];
+      var hero = p.get('hero') || saved.hero, scroll = p.get('scroll') || saved.scroll;
+      if (heroes.indexOf(hero) < 0) hero = 'trompo';
+      if (scrolls.indexOf(scroll) < 0) scroll = 'cine';
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) scroll = 'suave';
+      document.documentElement.dataset.hero = hero;
+      document.documentElement.dataset.scroll = scroll;
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="bolt" viewBox="0 0 24 32"><path d="M15.5 0 2 18.5h8.2L7.6 32 22 12.2h-8.3L15.5 0Z"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="pin" viewBox="0 0 24 24"><path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="10" r="2.6" fill="currentColor"/></symbol>
+    <symbol id="chili" viewBox="0 0 24 24"><path d="M15.2 6.3c2.6.6 4.3 3 3.6 6.4-1 4.8-6.6 8.6-12.9 8.3 3.6-1.8 5.7-4.4 6.4-7.7.6-2.8 1-6.5 2.9-7Z" fill="currentColor"/><path d="M15.4 6.2c-.2-1.9.6-3.3 2.4-4.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="leaf" viewBox="0 0 24 24"><path d="M20 4C9 4 4 9.5 4 16c0 1.4.3 2.7.8 4C7 13 11 9.5 16 8c-4 2.5-7.4 6.4-9 12 9.5 0 13-7 13-16Z" fill="currentColor"/></symbol>
+    <symbol id="sliders" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="16" cy="7" r="2.3" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="10" cy="17" r="2.3" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <!-- Intro: el logo cae como un rayo y se abre la portada -->
+  <div class="intro" aria-hidden="true">
+    <div class="intro__badge"><span>SHUA</span><svg><use href="#bolt"/></svg></div>
+  </div>
+
+  <a class="skip" href="#tacos">Saltar a la carta</a>
+
+  <header class="nav">
+    <a class="nav__logo" href="#top" aria-label="SHUA French Taco, inicio">
+      <span class="badge"><span>SHUA</span><svg aria-hidden="true"><use href="#bolt"/></svg></span>
+    </a>
+    <nav class="nav__links" aria-label="Secciones">
+      <a href="#tacos">French tacos</a>
+      <a href="#crea">Crea tu taco</a>
+      <a href="#shawarma">Shawarma y kebab</a>
+      <a href="#carta">Pedrata y entrantes</a>
+    </nav>
+    <a class="btn btn--small btn--yellow nav__cta" href="https://share.google/x1CPBYqoCLeUqCcxR" target="_blank" rel="noopener">
+      <svg aria-hidden="true"><use href="#pin"/></svg> Cómo llegar
+    </a>
+  </header>
+
+  <main id="top">
+    <!-- ============ PORTADA A · TROMPO 3D ============ -->
+    <section class="hero hero--trompo" aria-labelledby="h-trompo">
+      <div class="hero__bigword" aria-hidden="true">SHUA</div>
+      <canvas class="hero__canvas" data-hero-canvas="trompo" aria-hidden="true"></canvas>
+      <img class="hero__fallback" src="img/trompo-ternera.jpg" alt="" aria-hidden="true">
+      <div class="hero__content">
+        <h1 id="h-trompo" class="hero__title">
+          <span class="line">French Tacos</span>
+          <span class="line line--accent">&amp; Shawarma</span>
+        </h1>
+        <p class="hero__lede">Kebab al trompo, shawarma en pan libanés y french tacos prensados con patatas y salsa de queso dentro. Siempre.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--yellow" href="#tacos">Ver la carta <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+          <a class="btn btn--ghost" href="#crea">Crea tu taco</a>
+        </div>
+      </div>
+      <p class="hero__note" aria-hidden="true">Ternera arriba, pollo abajo.<br>Girando todo el día.</p>
+      <div class="hero__scrollcue" aria-hidden="true"><span></span></div>
+    </section>
+
+    <!-- ============ PORTADA B · RAYO 3D ============ -->
+    <section class="hero hero--rayo" aria-labelledby="h-rayo">
+      <canvas class="hero__canvas" data-hero-canvas="rayo" aria-hidden="true"></canvas>
+      <div class="hero__flash" aria-hidden="true"></div>
+      <div class="hero__content hero__content--center">
+        <h1 id="h-rayo" class="hero__title hero__title--stack">
+          <span class="line">Cae como</span>
+          <span class="line line--accent">un rayo</span>
+        </h1>
+        <p class="hero__lede">French tacos, kebab y shawarma en SHUA. Desde 6,90 €, con patatas y salsa de queso en cada taco.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--yellow" href="#tacos">Ver la carta <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+          <a class="btn btn--ghost" href="#crea">Crea tu taco</a>
+        </div>
+      </div>
+      <div class="hero__scrollcue" aria-hidden="true"><span></span></div>
+    </section>
+
+    <!-- ============ PORTADA C · PAPEL DE ALUMINIO (foto + 3D CSS) ============ -->
+    <section class="hero hero--foil" aria-labelledby="h-foil">
+      <div class="halftone" aria-hidden="true"></div>
+      <div class="foil__type" aria-hidden="true">
+        <span>FRENCH</span><span>TACO</span><span>SHUA</span>
+      </div>
+      <div class="foil__stage">
+        <div class="foil__card" data-tilt>
+          <img src="img/shawarma-falafel.jpg" alt="Shawarma de falafel con tomate, cebolla roja y salsa, envuelto en papel de aluminio con la pegatina de SHUA" width="768" height="1091">
+          <span class="foil__glare" aria-hidden="true"></span>
+        </div>
+        <span class="sticker sticker--1">Desde<b>6,90 €</b></span>
+        <span class="sticker sticker--2">Pollo amarillo de crianza tradicional</span>
+        <span class="sticker sticker--3"><svg aria-hidden="true"><use href="#bolt"/></svg>Patatas y salsa de queso en todos los tacos</span>
+      </div>
+      <div class="hero__content hero__content--foil">
+        <h1 id="h-foil" class="hero__title">
+          <span class="line">Envuelto</span>
+          <span class="line line--accent">y al rojo</span>
+        </h1>
+        <p class="hero__lede">French tacos, kebab y shawarma hechos al momento. Ternera de Carnicería Mardaras, del mismo mercado.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--yellow" href="#tacos">Ver la carta <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+          <a class="btn btn--ghost btn--ink" href="#crea">Crea tu taco</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CINTA ============ -->
+    <div class="ribbon" aria-hidden="true">
+      <div class="ribbon__track">
+        <span>Todos los tacos llevan patatas y salsa de queso</span><svg><use href="#bolt"/></svg>
+        <span>Hazlo menú por 3,50 €</span><svg><use href="#bolt"/></svg>
+        <span>Ternera de Carnicería Mardaras</span><svg><use href="#bolt"/></svg>
+        <span>Todos los tacos llevan patatas y salsa de queso</span><svg><use href="#bolt"/></svg>
+        <span>Hazlo menú por 3,50 €</span><svg><use href="#bolt"/></svg>
+        <span>Ternera de Carnicería Mardaras</span><svg><use href="#bolt"/></svg>
+      </div>
+    </div>
+
+    <!-- ============ FRENCH TACOS ============ -->
+    <section id="tacos" class="tacos" aria-labelledby="h-tacos">
+      <div class="tacos__pin">
+        <div class="tacos__track">
+          <article class="tacos__intro">
+            <h2 id="h-tacos" class="title split">French Tacos SHUA</h2>
+            <p>Tortilla rellena, cerrada y prensada a la plancha hasta que cruje. Dentro, patatas fritas y salsa de queso fundida. Seis de la casa, o el tuyo en <a href="#crea">Crea tu taco</a>.</p>
+            <figure class="tacos__photo">
+              <img src="img/french-taco.jpg" alt="French taco de SHUA abierto por la mitad, con el relleno de carne, patatas y queso fundido" width="495" height="340" loading="lazy">
+            </figure>
+          </article>
+          <!-- Las tarjetas se generan desde js/menu-data.js -->
+          <div class="tacos__cards" data-taco-cards></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CREA TU TACO ============ -->
+    <section id="crea" class="crea" aria-labelledby="h-crea">
+      <header class="crea__head">
+        <h2 id="h-crea" class="title split">Crea tu taco</h2>
+        <p>Elige tamaño, proteínas, salsa y extras. El precio se calcula solo; enséñaselo al equipo en barra.</p>
+      </header>
+
+      <div class="crea__grid">
+        <form class="builder" data-builder onsubmit="return false">
+          <fieldset class="step">
+            <legend><span class="step__n">1</span> Tamaño</legend>
+            <div class="sizes" data-sizes></div>
+          </fieldset>
+          <fieldset class="step">
+            <legend><span class="step__n">2</span> Proteína <span class="step__hint" data-prot-hint></span></legend>
+            <div class="chips" data-group="proteinas"></div>
+          </fieldset>
+          <fieldset class="step">
+            <legend><span class="step__n">3</span> Salsa <span class="step__hint">incluida, elige una</span></legend>
+            <div class="chips" data-group="salsas"></div>
+          </fieldset>
+          <fieldset class="step">
+            <legend><span class="step__n">4</span> Extras</legend>
+            <div class="chips" data-group="extras"></div>
+          </fieldset>
+          <fieldset class="step">
+            <legend><span class="step__n">5</span> Salsa extra</legend>
+            <div class="chips" data-group="salsaExtra"></div>
+          </fieldset>
+        </form>
+
+        <aside class="ticket" aria-label="Tu taco" data-ticket>
+          <div class="ticket__visual" aria-hidden="true">
+            <div class="stack" data-stack></div>
+          </div>
+          <div class="ticket__body">
+            <p class="ticket__size" data-t-size>Taco M</p>
+            <ul class="ticket__lines" data-t-lines></ul>
+            <label class="menu-toggle">
+              <input type="checkbox" data-menu>
+              <span class="menu-toggle__ui" aria-hidden="true"></span>
+              <span>Hazlo menú <small>patatas + bebida</small></span>
+              <b>+3,50 €</b>
+            </label>
+            <div class="ticket__total">
+              <span>Total</span>
+              <output data-total aria-live="polite">6,90 €</output>
+            </div>
+            <p class="ticket__msg" data-t-msg role="status"></p>
+            <button type="button" class="btn btn--yellow btn--block" data-show-ticket>Enseñar en barra</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ SHAWARMA / KEBAB ============ -->
+    <section id="shawarma" class="shawarma" aria-labelledby="h-shawarma">
+      <div class="shawarma__media">
+        <figure class="shawarma__photo shawarma__photo--main" data-tilt>
+          <img src="img/shawarma-falafel.jpg" alt="Shawarma vegano de falafel envuelto en aluminio con el logo de SHUA" width="768" height="1091" loading="lazy">
+        </figure>
+        <figure class="shawarma__photo shawarma__photo--meat" data-parallax="-0.18">
+          <img src="img/trompo-ternera.jpg" alt="Trompo de ternera dorándose en el asador vertical" loading="lazy">
+          <figcaption>Ternera</figcaption>
+        </figure>
+        <figure class="shawarma__photo shawarma__photo--chicken" data-parallax="0.14">
+          <img src="img/trompo-pollo.jpg" alt="Trompo de pollo marinado y dorado" loading="lazy">
+          <figcaption>Pollo</figcaption>
+        </figure>
+      </div>
+
+      <div class="shawarma__menu">
+        <h2 id="h-shawarma" class="title split">Shawarma / Kebab</h2>
+        <div class="bread" role="radiogroup" aria-label="Elige tu pan">
+          <button type="button" role="radio" aria-checked="true" class="bread__opt is-on" data-bread="shawarma">Shawarma <small>pan libanés</small></button>
+          <button type="button" role="radio" aria-checked="false" class="bread__opt" data-bread="kebab">Kebab <small>pan pita</small></button>
+          <span class="bread__pill" aria-hidden="true"></span>
+        </div>
+        <ul class="pricelist" data-shawarma-list></ul>
+        <p class="solo"><b>Solo carne y salsa yogur:</b> pollo +2,50 · ternera +3,50 · mixto +3,00</p>
+        <div class="complete">
+          <h3>Complétalo gratis <small>máximo 2</small></h3>
+          <div class="chips chips--free" data-complete></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CALIDAD ============ -->
+    <section class="origen" aria-labelledby="h-origen">
+      <img class="origen__bg" src="img/trompo-ternera.jpg" alt="" aria-hidden="true" loading="lazy">
+      <h2 id="h-origen" class="visually-hidden">De dónde viene la carne</h2>
+      <p class="origen__text" data-words>Nuestra ternera es de <em>Carnicería Mardaras</em>, de este mismo mercado. Nuestro pollo es <em>amarillo</em> y criado de forma tradicional.</p>
+    </section>
+
+    <!-- ============ PEDRATA + ENTRANTES ============ -->
+    <section id="carta" class="carta" aria-labelledby="h-carta">
+      <h2 id="h-carta" class="visually-hidden">Pedrata y entrantes</h2>
+      <article class="panel panel--pedrata">
+        <h3 class="title title--panel">Pedrata</h3>
+        <p class="panel__sub">Con salsa blanca</p>
+        <ul class="pricelist pricelist--panel" data-list="pedrata"></ul>
+      </article>
+      <article class="panel panel--entrantes">
+        <h3 class="title title--panel">Entrantes</h3>
+        <p class="panel__sub">Para compartir, o no</p>
+        <ul class="pricelist pricelist--panel" data-list="entrantes"></ul>
+      </article>
+      <article class="panel panel--menu">
+        <svg class="panel__bolt" aria-hidden="true"><use href="#bolt"/></svg>
+        <h3 class="title title--panel">Hazlo menú</h3>
+        <p class="panel__price">+3,50 €</p>
+        <p>Patatas y bebida con cualquier taco, kebab o shawarma.</p>
+      </article>
+    </section>
+
+    <!-- ============ VISITA ============ -->
+    <section id="visita" class="visita" aria-labelledby="h-visita">
+      <div class="visita__badge" aria-hidden="true">
+        <div class="badge badge--xl"><span>SHUA</span><svg><use href="#bolt"/></svg></div>
+      </div>
+      <h2 id="h-visita" class="title split">Ven a por tu SHUA</h2>
+      <p>Pide en barra, para tomar aquí o para llevar.</p>
+      <a class="btn btn--yellow btn--big" href="https://share.google/x1CPBYqoCLeUqCcxR" target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#pin"/></svg> Abrir en Google Maps
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><b>SHUA French Taco</b> · French tacos, kebab y shawarma</p>
+    <p>Precios en euros, IVA incluido.</p>
+  </footer>
+
+  <!-- Ticket a pantalla completa para enseñar en barra -->
+  <dialog class="fullticket" data-fullticket aria-labelledby="ft-title">
+    <div class="fullticket__inner">
+      <p class="fullticket__brand"><span class="badge"><span>SHUA</span><svg aria-hidden="true"><use href="#bolt"/></svg></span></p>
+      <h2 id="ft-title" data-ft-title>Taco M</h2>
+      <ul data-ft-lines></ul>
+      <p class="fullticket__total" data-ft-total></p>
+      <button type="button" class="btn btn--ink" data-close-ticket>Cerrar</button>
+    </div>
+  </dialog>
+
+  <!-- Selector de opciones de diseño (para elegir portada y scroll) -->
+  <div class="opts" data-opts>
+    <button type="button" class="opts__toggle" aria-expanded="false" aria-controls="opts-panel" data-opts-toggle>
+      <svg aria-hidden="true"><use href="#sliders"/></svg><span>Opciones de diseño</span>
+    </button>
+    <div id="opts-panel" class="opts__panel" hidden>
+      <div class="opts__head">
+        <p>Prueba combinaciones</p>
+        <button type="button" class="opts__x" aria-label="Cerrar opciones" data-opts-close><svg aria-hidden="true"><use href="#close"/></svg></button>
+      </div>
+      <fieldset>
+        <legend>Portada</legend>
+        <label><input type="radio" name="o-hero" value="trompo"><span><b>Trompo 3D</b>El asador girando con las fotos reales, brasas y luz del grill</span></label>
+        <label><input type="radio" name="o-hero" value="rayo"><span><b>Rayo 3D</b>El rayo de la marca en 3D, con descargas eléctricas</span></label>
+        <label><input type="radio" name="o-hero" value="foil"><span><b>Aluminio</b>Foto del shawarma con inclinación 3D y pegatinas. La más ligera</span></label>
+      </fieldset>
+      <fieldset>
+        <legend>Scroll</legend>
+        <label><input type="radio" name="o-scroll" value="cine"><span><b>Cinemático</b>Scroll suave, secciones fijadas y tacos en horizontal</span></label>
+        <label><input type="radio" name="o-scroll" value="comic"><span><b>Cómic</b>Viñetas que entran de golpe, sellos y rayos</span></label>
+        <label><input type="radio" name="o-scroll" value="suave"><span><b>Sobrio</b>Scroll normal con apariciones discretas</span></label>
+      </fieldset>
+    </div>
+  </div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/SplitText.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
