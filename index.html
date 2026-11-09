@@ -36,6 +36,7 @@
     <symbol id="chili" viewBox="0 0 24 24"><path d="M15.2 6.3c2.6.6 4.3 3 3.6 6.4-1 4.8-6.6 8.6-12.9 8.3 3.6-1.8 5.7-4.4 6.4-7.7.6-2.8 1-6.5 2.9-7Z" fill="currentColor"/><path d="M15.4 6.2c-.2-1.9.6-3.3 2.4-4.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
     <symbol id="leaf" viewBox="0 0 24 24"><path d="M20 4C9 4 4 9.5 4 16c0 1.4.3 2.7.8 4C7 13 11 9.5 16 8c-4 2.5-7.4 6.4-9 12 9.5 0 13-7 13-16Z" fill="currentColor"/></symbol>
     <symbol id="sliders" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="16" cy="7" r="2.3" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="10" cy="17" r="2.3" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="phone" viewBox="0 0 24 24"><path d="M6.6 3h2.6l1.5 4.2-2 1.3a12 12 0 0 0 6.8 6.8l1.3-2 4.2 1.5v2.6c0 1.4-1.1 2.6-2.5 2.6C10.2 20 4 13.8 4 5.5 4 4.1 5.2 3 6.6 3Z" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"/></symbol>
     <symbol id="close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
   </svg>
 
@@ -56,7 +57,7 @@
       <a href="#shawarma">Shawarma y kebab</a>
       <a href="#carta">Pedrata y entrantes</a>
     </nav>
-    <a class="btn btn--small btn--yellow nav__cta" href="https://share.google/x1CPBYqoCLeUqCcxR" target="_blank" rel="noopener">
+    <a class="btn btn--small btn--yellow nav__cta" href="#visita">
       <svg aria-hidden="true"><use href="#pin"/></svg> Cómo llegar
     </a>
   </header>
@@ -120,7 +121,7 @@
           <span class="line">Envuelto</span>
           <span class="line line--accent">y al rojo</span>
         </h1>
-        <p class="hero__lede">French tacos, kebab y shawarma hechos al momento. Ternera de Carnicería Mardaras, del mismo mercado.</p>
+        <p class="hero__lede">French tacos, kebab y shawarma hechos al momento en el mercado de Algorta. Ternera de Carnicería Mardaras, del mismo mercado.</p>
         <div class="hero__ctas">
           <a class="btn btn--yellow" href="#tacos">Ver la carta <svg aria-hidden="true"><use href="#arrow"/></svg></a>
           <a class="btn btn--ghost btn--ink" href="#crea">Crea tu taco</a>
@@ -148,7 +149,7 @@
             <h2 id="h-tacos" class="title split">French Tacos SHUA</h2>
             <p>Tortilla rellena, cerrada y prensada a la plancha hasta que cruje. Dentro, patatas fritas y salsa de queso fundida. Seis de la casa, o el tuyo en <a href="#crea">Crea tu taco</a>.</p>
             <figure class="tacos__photo">
-              <img src="img/french-taco.jpg" alt="French taco de SHUA abierto por la mitad, con el relleno de carne, patatas y queso fundido" width="495" height="340" loading="lazy">
+              <img src="img/dish-french-taco.jpg" alt="French taco de SHUA cortado por la mitad, tostado a la plancha, con pollo, carne y patatas dentro" width="1200" height="952" loading="lazy">
             </figure>
           </article>
           <!-- Las tarjetas se generan desde js/menu-data.js -->
@@ -216,15 +217,15 @@
     <section id="shawarma" class="shawarma" aria-labelledby="h-shawarma">
       <div class="shawarma__media">
         <figure class="shawarma__photo shawarma__photo--main" data-tilt>
-          <img src="img/shawarma-falafel.jpg" alt="Shawarma vegano de falafel envuelto en aluminio con el logo de SHUA" width="768" height="1091" loading="lazy">
+          <img src="img/dish-shawarma.jpg" alt="Shawarma de SHUA en pan libanés con carne, cebolla roja, tomate y salsa de yogur" width="732" height="800" loading="lazy">
         </figure>
         <figure class="shawarma__photo shawarma__photo--meat" data-parallax="-0.18">
-          <img src="img/trompo-ternera.jpg" alt="Trompo de ternera dorándose en el asador vertical" loading="lazy">
-          <figcaption>Ternera</figcaption>
+          <img src="img/dish-kebab.jpg" alt="Kebab de SHUA en pan pita con carne, lechuga, tomate y cebolla roja" width="864" height="864" loading="lazy">
+          <figcaption>Kebab</figcaption>
         </figure>
         <figure class="shawarma__photo shawarma__photo--chicken" data-parallax="0.14">
-          <img src="img/trompo-pollo.jpg" alt="Trompo de pollo marinado y dorado" loading="lazy">
-          <figcaption>Pollo</figcaption>
+          <img src="img/dish-kebab-falafel.jpg" alt="Kebab de falafel con verduras asadas y salsa de yogur" width="594" height="594" loading="lazy">
+          <figcaption>Falafel</figcaption>
         </figure>
       </div>
 
@@ -255,14 +256,15 @@
     <section id="carta" class="carta" aria-labelledby="h-carta">
       <h2 id="h-carta" class="visually-hidden">Pedrata y entrantes</h2>
       <article class="panel panel--pedrata">
+        <figure class="panel__photo"><img src="img/dish-pedrata.jpg" alt="Pedrata de SHUA: patatas con carne de kebab y salsa blanca por encima" width="1027" height="1027" loading="lazy"></figure>
         <h3 class="title title--panel">Pedrata</h3>
-        <p class="panel__sub">Con salsa blanca</p>
+        <p class="panel__sub">Patatas, carne del trompo y salsa blanca</p>
         <ul class="pricelist pricelist--panel" data-list="pedrata"></ul>
       </article>
       <article class="panel panel--entrantes">
         <h3 class="title title--panel">Entrantes</h3>
         <p class="panel__sub">Para compartir, o no</p>
-        <ul class="pricelist pricelist--panel" data-list="entrantes"></ul>
+        <ul class="pricelist pricelist--panel pricelist--thumbs" data-list="entrantes"></ul>
       </article>
       <article class="panel panel--menu">
         <svg class="panel__bolt" aria-hidden="true"><use href="#bolt"/></svg>
@@ -274,20 +276,39 @@
 
     <!-- ============ VISITA ============ -->
     <section id="visita" class="visita" aria-labelledby="h-visita">
-      <div class="visita__badge" aria-hidden="true">
-        <div class="badge badge--xl"><span>SHUA</span><svg><use href="#bolt"/></svg></div>
+      <div class="visita__info">
+        <div class="visita__badge" aria-hidden="true">
+          <div class="badge badge--xl"><span>SHUA</span><svg><use href="#bolt"/></svg></div>
+        </div>
+        <h2 id="h-visita" class="title split">Ven a por tu SHUA</h2>
+        <address class="visita__data">
+          <p><svg aria-hidden="true"><use href="#pin"/></svg><span>Dentro del mercado<br>Torrene Kalea 4, 48991 Algorta (Getxo)</span></p>
+          <p><svg aria-hidden="true"><use href="#phone"/></svg><a href="tel:+34944122650">944 12 26 50</a></p>
+        </address>
+        <p class="visita__note">Pide en barra para tomar aquí o para llevar. O te lo llevamos a casa por Glovo.</p>
+        <div class="visita__ctas">
+          <a class="btn btn--pink btn--big" href="https://www.google.com/maps/place/SHUA/data=!4m2!3m1!1s0xd4e5b2c0fb45525:0xb08d565a7716abe8" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#pin"/></svg> Cómo llegar
+          </a>
+          <a class="btn btn--ink btn--big" href="https://glovoapp.com/es/es/getxo/shua-getxo" target="_blank" rel="noopener">
+            Pedir en Glovo <svg aria-hidden="true"><use href="#arrow"/></svg>
+          </a>
+        </div>
       </div>
-      <h2 id="h-visita" class="title split">Ven a por tu SHUA</h2>
-      <p>Pide en barra, para tomar aquí o para llevar.</p>
-      <a class="btn btn--yellow btn--big" href="https://share.google/x1CPBYqoCLeUqCcxR" target="_blank" rel="noopener">
-        <svg aria-hidden="true"><use href="#pin"/></svg> Abrir en Google Maps
-      </a>
+      <div class="visita__media">
+        <figure class="visita__photo" data-tilt>
+          <img src="img/local-shua.jpg" alt="Barra de SHUA en el mercado de Algorta, con el asador vertical, las salsas y las pantallas con la carta" width="1200" height="900" loading="lazy">
+        </figure>
+        <div class="visita__map">
+          <iframe title="Mapa: SHUA en Torrene Kalea 4, Algorta" src="https://www.google.com/maps?q=SHUA,+Torrene+Kalea+4,+48991+Algorta&z=17&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p><b>SHUA French Taco</b> · French tacos, kebab y shawarma</p>
-    <p>Precios en euros, IVA incluido.</p>
+    <p><b>SHUA French Taco</b> · Torrene Kalea 4, Algorta (Getxo) · <a href="tel:+34944122650">944 12 26 50</a></p>
+    <p>Precios de la carta en el local, IVA incluido.</p>
   </footer>
 
   <!-- Ticket a pantalla completa para enseñar en barra -->

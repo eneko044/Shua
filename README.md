@@ -37,7 +37,12 @@ Cuando elijáis la definitiva, añade `?opciones=0` al enlace o borra el bloque 
 
 Todos los platos y precios están en `js/menu-data.js`. Cambiar un precio ahí lo cambia en toda la web, incluido el configurador.
 
+## Datos y fotos
+
+- **Local:** dentro del mercado, Torrene Kalea 4, 48991 Algorta (Getxo). Teléfono 944 12 26 50. Pedidos a domicilio por [Glovo](https://glovoapp.com/es/es/getxo/shua-getxo). Datos sacados de la ficha de Google Maps.
+- **Fotos:** `img/local-shua.jpg` es la foto de la barra de la ficha de Google. Las `img/dish-*.jpg` son las fotos de los platos de la carta de SHUA en Glovo. `img/trompo-*.jpg`, `img/shawarma-falafel.jpg` y `img/french-taco.jpg` salen de las imágenes que se pasaron (TikTok y carta).
+- **Precios:** son los de la carta física del local. En Glovo los precios son más altos (incluyen el recargo de reparto), por eso no se han copiado de allí.
+
 ## Pendiente
 
-- **Fotos de Google:** el enlace de Google Maps no se pudo descargar desde el entorno de trabajo. Las fotos actuales salen de las imágenes que se pasaron (trompo, shawarma de falafel y french taco de la carta). Para añadir más, guárdalas en `img/` y cámbialas en `index.html`.
-- **Dirección, teléfono y horario:** no aparecen en la carta. El botón "Cómo llegar" abre la ficha de Google Maps del local.
+- **Horario:** Google Maps solo mostró el del lunes (19:30 a 22:30) en la vista sin sesión, así que no se ha puesto en la web. Cuando lo tengáis completo se añade en la sección "Ven a por tu SHUA".

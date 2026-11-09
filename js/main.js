@@ -32,9 +32,11 @@ $('[data-taco-cards]').innerHTML = tacosCasa.map((t) => `
 $('[data-shawarma-list]').innerHTML = shawarma.map((s) => `
   <li><span class="pl__name">${s.name}${s.veggie ? leaf : ''}</span><span class="pl__price">${eur(s.price)}</span><span class="pl__desc">${s.desc}</span></li>`).join('');
 
+// Entrantes con foto; la pedrata no lleva miniatura
 const simpleList = (items) => items.map((s) => `
+  <li>${s.img ? `<img class="pl__img" src="${s.img}" alt="${s.alt}" width="64" height="64" loading="lazy">` : '<span class="pl__img pl__img--none" aria-hidden="true"></span>'}<span class="pl__name">${s.name}</span><span class="pl__price">${eur(s.price)}</span></li>`).join('');
+$('[data-list="pedrata"]').innerHTML = pedrata.map((s) => `
   <li><span class="pl__name">${s.name}</span><span class="pl__price">${eur(s.price)}</span></li>`).join('');
-$('[data-list="pedrata"]').innerHTML = simpleList(pedrata);
 $('[data-list="entrantes"]').innerHTML = simpleList(entrantes);
 
 // Complétalo: máximo 2
@@ -258,6 +260,8 @@ function shawarmaParallax() {
   tilt($('.shawarma__photo--main'), { max: 10 });
 }
 
+function visitaTilt() { tilt($('.visita__photo'), { max: 6 }); }
+
 function modeCine() {
   lenis = new window.Lenis({ lerp: 0.09, wheelMultiplier: 1 });
   lenis.on('scroll', (e) => { ScrollTrigger.update(); onScrollNav(e.scroll); });
@@ -330,7 +334,7 @@ function modeCine() {
   gsap.from('.panel__bolt', { rotate: -60, scale: 0, ease: 'back.out(2)', duration: 1, scrollTrigger: { trigger: '.panel--menu', start: 'top 75%', once: true } });
 
   // Visita: el logo rueda hasta su sitio
-  gsap.fromTo('.visita__badge', { xPercent: -260, rotate: -540 }, {
+  gsap.fromTo('.visita__badge', { xPercent: -160, rotate: -540 }, {
     xPercent: 0, rotate: 0, ease: 'none',
     scrollTrigger: { trigger: '.visita', start: 'top bottom', end: 'top 30%', scrub: 1 },
   });
@@ -402,7 +406,7 @@ function modeComic() {
 function modeSuave() {
   window.addEventListener('scroll', () => onScrollNav(window.scrollY), { passive: true });
   if (!gsap || reduced) return;
-  ScrollTrigger.batch('.title, .tacos__intro p, .tacos__photo, .tcard, .step, .ticket, .shawarma__photo, .pricelist li, .panel, [data-words], .visita > *', {
+  ScrollTrigger.batch('.title, .tacos__intro p, .tacos__photo, .tcard, .step, .ticket, .shawarma__photo, .pricelist li, .panel, [data-words], .visita__info > *, .visita__media > *', {
     start: 'top 90%', once: true,
     onEnter: (els) => gsap.from(els, { y: 26, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.06 }),
   });
@@ -413,6 +417,7 @@ function modeSuave() {
    7. Arranque
    ========================================================= */
 startHero();
+visitaTilt();
 
 if (!gsap || !ScrollTrigger) {
   window.addEventListener('scroll', () => onScrollNav(window.scrollY), { passive: true });

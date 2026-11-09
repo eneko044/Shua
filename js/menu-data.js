@@ -120,10 +120,10 @@ export const pedrata = [
 ];
 
 export const entrantes = [
-  { name: 'Alitas', price: 6 },
-  { name: 'Fingers', price: 7 },
-  { name: 'Falafel', price: 6, veggie: true },
-  { name: 'Nuggets', price: 6 },
+  { name: 'Alitas', price: 6, img: 'img/dish-alitas.jpg', alt: 'Alitas de pollo glaseadas' },
+  { name: 'Fingers', price: 7, img: 'img/dish-fingers.jpg', alt: 'Fingers de pollo empanados con salsa' },
+  { name: 'Falafel', price: 6, veggie: true, img: 'img/dish-falafel.jpg', alt: 'Bolas de falafel' },
+  { name: 'Nuggets', price: 6, img: 'img/dish-nuggets.jpg', alt: 'Nuggets de pollo con salsa' },
   { name: 'Patatas', price: 4, veggie: true },
 ];
 

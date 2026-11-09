@@ -96,6 +96,8 @@ svg { width: 1em; height: 1em; fill: currentColor; flex: none; }
 .btn--ghost { color: var(--cream); box-shadow: inset 0 0 0 2px currentColor; background: transparent; }
 .btn--ghost:hover { background: rgba(255, 245, 228, .12); transform: translateY(-2px); }
 .btn--ink { background: var(--ink); color: var(--cream); }
+.btn--pink { background: var(--pink); color: var(--cream); box-shadow: 0 14px 28px -12px rgba(158, 11, 76, .8); }
+.btn--pink:hover, .btn--ink:hover { transform: translateY(-2px); }
 .btn--ghost.btn--ink { background: transparent; color: var(--ink); }
 .btn--ghost.btn--ink:hover { background: rgba(23, 10, 29, .08); }
 .btn--small { padding: .7em 1.1em; font-size: .95rem; }
@@ -324,7 +326,8 @@ svg { width: 1em; height: 1em; fill: currentColor; flex: none; }
 .tacos__intro p { max-width: 46ch; color: #dfe4ff; margin: 0 0 28px; }
 .tacos__intro a { color: var(--yellow); }
 .tacos__photo { margin: 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); rotate: -2deg; max-width: 480px; }
-.tacos__photo img { width: 100%; aspect-ratio: 495/340; object-fit: cover; transform: scale(1.04); }
+.tacos__photo { background: #000; }
+.tacos__photo img { width: 100%; aspect-ratio: 1200/952; object-fit: cover; }
 .tacos__cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 22px; }
 
 .tcard {
@@ -525,9 +528,9 @@ svg { width: 1em; height: 1em; fill: currentColor; flex: none; }
 .shawarma__media { position: relative; min-height: 600px; perspective: 1000px; }
 .shawarma__photo { position: absolute; margin: 0; border-radius: 26px; overflow: hidden; box-shadow: 0 30px 60px -28px rgba(30, 30, 0, .85); }
 .shawarma__photo img { width: 100%; height: 100%; object-fit: cover; }
-.shawarma__photo--main { left: 18%; top: 0; width: 58%; aspect-ratio: 768/1091; z-index: 2; rotate: -3deg; transform-style: preserve-3d; }
+.shawarma__photo--main { left: 20%; top: 4%; width: 56%; aspect-ratio: 732/800; z-index: 2; rotate: -3deg; transform-style: preserve-3d; background: #000; }
 .shawarma__photo--meat { left: 0; top: 8%; width: 36%; aspect-ratio: 1; z-index: 1; rotate: -9deg; }
-.shawarma__photo--chicken { right: 0; bottom: 4%; width: 40%; aspect-ratio: 1.1; z-index: 3; rotate: 6deg; }
+.shawarma__photo--chicken { right: 0; bottom: 4%; width: 38%; aspect-ratio: 1; z-index: 3; rotate: 6deg; }
 .shawarma__photo figcaption {
   position: absolute; left: 10px; bottom: 10px; padding: 6px 12px; border-radius: 999px;
   background: var(--ink); color: var(--yellow); font: 1rem/1 var(--f-hand);
@@ -585,6 +588,13 @@ svg { width: 1em; height: 1em; fill: currentColor; flex: none; }
   background-image: radial-gradient(var(--pink-deep) 1.5px, transparent 1.7px); background-size: 14px 14px;
 }
 .panel { position: relative; overflow: hidden; padding: 32px 28px 30px; border-radius: 28px; box-shadow: var(--shadow); }
+.panel__photo { margin: -32px -28px 22px; aspect-ratio: 16 / 10; overflow: hidden; }
+.panel__photo img { width: 100%; height: 100%; object-fit: cover; transition: scale .8s var(--ease-out); }
+.panel:hover .panel__photo img { scale: 1.05; }
+.pricelist.pricelist--thumbs li { grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 9px 0; }
+.pl__img { width: 58px; height: 58px; border-radius: 16px; object-fit: cover; background: #000; box-shadow: 0 8px 16px -8px rgba(0, 0, 0, .6); rotate: -3deg; transition: rotate .4s var(--ease-out), scale .4s var(--ease-out); }
+.pricelist--thumbs li:hover .pl__img { rotate: 3deg; scale: 1.08; }
+.pl__img--none { display: grid; background: rgba(255, 245, 228, .14); box-shadow: none; }
 .panel--pedrata { background: var(--green); }
 .panel--entrantes { background: var(--orange); }
 .panel--menu { background: var(--yellow); color: var(--ink); display: flex; flex-direction: column; justify-content: center; }
@@ -595,7 +605,7 @@ svg { width: 1em; height: 1em; fill: currentColor; flex: none; }
 .pricelist--panel .pl__name { font: 800 1.45rem/1 var(--f-cond); letter-spacing: .03em; }
 .pricelist--panel .pl__price { font-size: 1.45rem; }
 .panel__bolt { position: absolute; right: -30px; top: -30px; width: 180px; height: 240px; color: var(--pink); opacity: .9; rotate: 18deg; }
-.panel--menu .title { position: relative; max-width: 6ch; }
+.panel--menu .title { position: relative; max-width: 7ch; line-height: 1.08; }
 .panel__price { position: relative; margin: 10px 0; font: clamp(3rem, 5vw, 4.2rem)/1 var(--f-display); color: var(--pink); letter-spacing: -.03em; }
 .panel--menu p:last-child { position: relative; margin: 0; font: 700 1.2rem/1.3 var(--f-cond); text-transform: uppercase; max-width: 22ch; }
 @media (max-width: 960px) { .carta { grid-template-columns: 1fr; } }
@@ -604,13 +614,23 @@ svg { width: 1em; height: 1em; fill: currentColor; flex: none; }
    VISITA + PIE
    ========================================================= */
 .visita {
-  position: relative; display: grid; justify-items: center; text-align: center; gap: 18px;
-  padding: clamp(90px, 12vw, 160px) var(--gutter); background: var(--yellow); color: var(--ink); overflow: hidden;
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(32px, 5vw, 72px); align-items: center;
+  padding: clamp(90px, 11vw, 150px) var(--gutter); background: var(--yellow); color: var(--ink); overflow: hidden;
 }
-.visita .title { font-size: clamp(2.6rem, 7.5vw, 6rem); }
-.visita p { margin: 0 0 10px; font: 700 1.3rem/1.3 var(--f-cond); text-transform: uppercase; letter-spacing: .03em; }
-.visita .btn--yellow { background: var(--pink); color: var(--cream); box-shadow: 0 14px 28px -12px rgba(158, 11, 76, .8); }
-.visita__badge .badge { box-shadow: inset 0 0 0 8px #fff, 0 30px 50px -20px rgba(158, 11, 76, .7); }
+.visita .title { font-size: clamp(2.6rem, 6vw, 5rem); margin: 18px 0 26px; }
+.visita__badge .badge { --s: clamp(110px, 12vw, 150px); box-shadow: inset 0 0 0 6px #fff, 0 24px 40px -20px rgba(158, 11, 76, .7); }
+.visita__data { font-style: normal; display: grid; gap: 14px; margin-bottom: 18px; }
+.visita__data p { display: flex; gap: 14px; align-items: flex-start; margin: 0; font: 700 clamp(1.25rem, 2vw, 1.5rem)/1.2 var(--f-cond); text-transform: uppercase; letter-spacing: .02em; }
+.visita__data svg { width: 28px; height: 28px; color: var(--pink); margin-top: 1px; }
+.visita__data a { text-decoration-color: var(--pink); }
+.visita__note { margin: 0 0 26px; max-width: 40ch; font-size: 1.1rem; }
+.visita__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.visita__media { position: relative; display: grid; gap: 18px; perspective: 1100px; }
+.visita__photo { margin: 0; border-radius: 26px; overflow: hidden; box-shadow: 0 30px 60px -28px rgba(91, 50, 0, .7); rotate: 1.5deg; transform-style: preserve-3d; }
+.visita__photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.visita__map { position: relative; border-radius: 22px; overflow: hidden; height: 240px; box-shadow: 0 0 0 4px var(--ink), 0 20px 40px -24px rgba(91, 50, 0, .7); rotate: -1deg; background: #e9e4d8; }
+.visita__map iframe { width: 100%; height: 100%; border: 0; display: block; filter: saturate(.9) contrast(1.05); }
+@media (max-width: 900px) { .visita { grid-template-columns: 1fr; } }
 .footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: 26px var(--gutter) 90px; background: var(--ink); color: #cdb6c6; font-size: .95rem; }
 .footer p { margin: 0; }
 .footer b { color: var(--cream); }
@@ -660,7 +680,7 @@ svg { width: 1em; height: 1em; fill: currentColor; flex: none; }
 }
 [data-scroll="comic"] .tcard, [data-scroll="comic"] .panel, [data-scroll="comic"] .ticket, [data-scroll="comic"] .step { box-shadow: 0 0 0 4px var(--ink), 0 18px 30px -16px rgba(0, 0, 0, .6); }
 .zap {
-  position: absolute; right: -.35em; top: -.45em; width: .55em; height: .75em;
+  display: inline-block; vertical-align: .35em; margin-left: .12em; width: .5em; height: .7em;
   fill: var(--yellow); stroke: var(--ink); stroke-width: 1.6px; paint-order: stroke; stroke-linejoin: round;
   filter: drop-shadow(0 4px 0 var(--ink));
 }
